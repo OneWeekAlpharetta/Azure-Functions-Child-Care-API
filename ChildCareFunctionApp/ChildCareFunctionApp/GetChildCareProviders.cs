@@ -67,7 +67,11 @@ namespace ChildCareFunctionApp
 
             if (successful)
             {
-                return req.CreateResponse(HttpStatusCode.OK, results);
+                //return req.CreateResponse(HttpStatusCode.OK, results);
+                return new HttpResponseMessage(HttpStatusCode.OK)
+                {
+                    Content = new StringContent(results, Encoding.UTF8, "application/json")
+                };
             }
             else
             {
